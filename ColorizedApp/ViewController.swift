@@ -9,45 +9,58 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var ColorizedView: UIView!
+    
+    
+    @IBOutlet weak var colorizedView: UIView!
     
     @IBOutlet weak var redCurrentValue: UILabel!
     @IBOutlet weak var greenCurrentValue: UILabel!
     @IBOutlet weak var blueCurrentValue: UILabel!
     
-    
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
-    
-   
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         redSlider.minimumValue = 0
         redSlider.maximumValue = 1
+        colorizedView.layer.cornerRadius = 10
+       
         
-
     }
-
+    
     @IBAction func redSliderAction() {
         redCurrentValue.text = String(redSlider.value)
-        redSlider.minimumTrackTintColor = .red
+        let redSliderValue = CGFloat(redSlider.value)
+        let greenSliderValue = CGFloat(greenSlider.value)
+        let blueSliderValue = CGFloat(blueSlider.value)
+        colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
     }
     
     @IBAction func greenSliderAction() {
         greenCurrentValue.text = String(greenSlider.value)
-        greenSlider.minimumTrackTintColor = .green
+        let redSliderValue = CGFloat(redSlider.value)
+        let greenSliderValue = CGFloat(greenSlider.value)
+        let blueSliderValue = CGFloat(blueSlider.value)
+        colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
+        
     }
     
     @IBAction func blueSliderAction() {
         blueCurrentValue.text = String(blueSlider.value)
-        blueSlider.minimumTrackTintColor = .blue
+        let redSliderValue = CGFloat(redSlider.value)
+        let greenSliderValue = CGFloat(greenSlider.value)
+        let blueSliderValue = CGFloat(blueSlider.value)
+        colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
+        
     }
     
     
-    
 }
+
+    
+    
+    
+
 
