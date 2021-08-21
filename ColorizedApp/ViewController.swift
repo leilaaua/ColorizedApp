@@ -8,8 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    
     
     @IBOutlet weak var colorizedView: UIView!
     
@@ -26,37 +24,34 @@ class ViewController: UIViewController {
         redSlider.minimumValue = 0
         redSlider.maximumValue = 1
         colorizedView.layer.cornerRadius = 10
-       
-        
     }
-    
-    @IBAction func redSliderAction() {
-        redCurrentValue.text = String(redSlider.value)
+
+    private func getColorizedView() {
         let redSliderValue = CGFloat(redSlider.value)
         let greenSliderValue = CGFloat(greenSlider.value)
         let blueSliderValue = CGFloat(blueSlider.value)
         colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
+    }
+    
+    private func changeCurrentValue(label: UILabel!, slider: UISlider! ) {
+        label.text = String(format: "%.2f", slider.value)
+    }
+    
+    
+    @IBAction func redSliderAction() {
+        changeCurrentValue(label: redCurrentValue, slider: redSlider)
+        getColorizedView()
     }
     
     @IBAction func greenSliderAction() {
-        greenCurrentValue.text = String(greenSlider.value)
-        let redSliderValue = CGFloat(redSlider.value)
-        let greenSliderValue = CGFloat(greenSlider.value)
-        let blueSliderValue = CGFloat(blueSlider.value)
-        colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
-        
+        changeCurrentValue(label: greenCurrentValue, slider: greenSlider)
+        getColorizedView()
     }
     
     @IBAction func blueSliderAction() {
-        blueCurrentValue.text = String(blueSlider.value)
-        let redSliderValue = CGFloat(redSlider.value)
-        let greenSliderValue = CGFloat(greenSlider.value)
-        let blueSliderValue = CGFloat(blueSlider.value)
-        colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
-        
+        changeCurrentValue(label: blueCurrentValue, slider: blueSlider)
+        getColorizedView()
     }
-    
-    
 }
 
     
