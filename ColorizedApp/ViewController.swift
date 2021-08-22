@@ -21,22 +21,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        redSlider.minimumValue = 0
-        redSlider.maximumValue = 1
         colorizedView.layer.cornerRadius = 10
+        colorizedView.backgroundColor = .black
     }
-
-    private func getColorizedView() {
-        let redSliderValue = CGFloat(redSlider.value)
-        let greenSliderValue = CGFloat(greenSlider.value)
-        let blueSliderValue = CGFloat(blueSlider.value)
-        colorizedView.backgroundColor = UIColor(red: redSliderValue, green: greenSliderValue, blue: blueSliderValue, alpha: 1 )
-    }
-    
-    private func changeCurrentValue(label: UILabel!, slider: UISlider! ) {
-        label.text = String(format: "%.2f", slider.value)
-    }
-    
     
     @IBAction func redSliderAction() {
         changeCurrentValue(label: redCurrentValue, slider: redSlider)
@@ -52,10 +39,25 @@ class ViewController: UIViewController {
         changeCurrentValue(label: blueCurrentValue, slider: blueSlider)
         getColorizedView()
     }
+    
+    private func getColorizedView() {
+        let redSliderValue = CGFloat(redSlider.value)
+        let greenSliderValue = CGFloat(greenSlider.value)
+        let blueSliderValue = CGFloat(blueSlider.value)
+        colorizedView.backgroundColor = UIColor(red: redSliderValue,
+                                                green: greenSliderValue,
+                                                blue: blueSliderValue,
+                                                alpha: 1 )
+    }
+    
+    private func changeCurrentValue(label: UILabel!, slider: UISlider! ) {
+        label.text = String(format: "%.2f", slider.value)
+    }
+    
 }
 
-    
-    
-    
+
+
+
 
 
